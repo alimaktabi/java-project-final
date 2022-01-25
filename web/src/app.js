@@ -8,8 +8,9 @@ import Vue from "vue"
 import Axios from "axios"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
+import EditProfile from "./pages/edit-profile"
 import VueCookie from "vue-cookies"
-import Search from "./pages/Search";
+import Search from "./pages/Search"
 
 
 Vue.use(window.VueRouter = VueRouter)
@@ -34,7 +35,8 @@ const router = new VueRouter({
 const routes = [
     { component: Login, path: "/login" },
     { component: Register, path: "/register" },
-    { component: Search, path: "/search" }
+    { component: Search, path: "/search" },
+    { component: EditProfile, path: "/edit-profile" }
 ]
 
 router.addRoutes(routes)

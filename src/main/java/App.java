@@ -39,6 +39,10 @@ public class App {
 
         app.get("/search", (Handler) Account.SearchUsers);
 
+        app.post("/get-profile", (Handler) Account.getProfile);
+
+        app.post("/update-profile", (Handler) Account.updateProfile);
+
 
         app.config.addStaticFiles(publicPath, Location.EXTERNAL);
 

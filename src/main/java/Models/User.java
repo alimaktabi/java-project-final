@@ -12,11 +12,11 @@ public class User {
     public String password;
     public Page page;
 
-    public String token;
+    public String token = "";
 
     public static ArrayList<User> users = new ArrayList<User>() {
         {
-            add(new User("Sina amini", "sina.amini2001@gmail.com", "123456"));
+            add(new User("Sina amini", "09331600113", "123456"));
         }
     };
 

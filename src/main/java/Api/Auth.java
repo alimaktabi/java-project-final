@@ -5,7 +5,7 @@ import io.javalin.http.Handler;
 
 public class Auth {
 
-    static class UserResponse {
+    public static class UserResponse {
         public String fullName;
         public String username;
         public String token;
