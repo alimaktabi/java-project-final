@@ -1,0 +1,16 @@
+target
+
+target/*
+
+.idea/*
+
+.idea
+
+node_modules
+
+/web/node_modules
+
+dist
+
+dist/*
+
