@@ -45,4 +45,31 @@ public class Auth {
         ctx.json(userResponse);
     };
 
+    public static Handler Register = (ctx) -> {
+
+        String username = ctx.formParam("username");
+        String password = ctx.formParam("password");
+        String fullName = ctx.formParam("fullName");
+
+        for (User user: User.users)
+        {
+            if (user.username.equals(username))
+            {
+                ctx.status(400);
+                ctx.result("Username already taken");
+                return;
+            }
+        }
+
+        User user = new User(fullName, username, password);
+
+        user.login();
+
+        User.users.add(user);
+
+        UserResponse userResponse = new UserResponse(user);
+
+        ctx.json(userResponse);
+    };
+
 }

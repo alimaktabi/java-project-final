@@ -8,9 +8,13 @@ import Vue from "vue"
 import Axios from "axios"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
+import VueCookie from "vue-cookies"
+import Search from "./pages/Search";
 
 
 Vue.use(window.VueRouter = VueRouter)
+
+Vue.use(VueCookie)
 
 Vue.use(Toasted, {position: 'bottom-right', duration: 4000})
 
@@ -29,7 +33,8 @@ const router = new VueRouter({
 
 const routes = [
     { component: Login, path: "/login" },
-    { component: Register, path: "/register" }
+    { component: Register, path: "/register" },
+    { component: Search, path: "/search" }
 ]
 
 router.addRoutes(routes)

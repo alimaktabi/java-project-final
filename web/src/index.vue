@@ -13,13 +13,23 @@
                         <li class="nav-item">
                             <router-link class="nav-link" exact-active-class="active" to="/posts">New Posts</router-link>
                         </li>
+                        <li class="nav-item">
+                            <router-link class="nav-link" exact-active-class="active" to="/search">search</router-link>
+                        </li>
                     </ul>
-                    <router-link to="/login" exact-active-class="active" tag="button" class="btn btn-outline-primary">
-                        Login
-                    </router-link>
-                    <router-link class="btn btn-outline-success mx-2" exact-active-class="active" to="/register" tag="button">
-                        Register
-                    </router-link>
+                    <div v-if="loggedIn">
+                        <router-link to="/edit-profile" exact-active-class="active" tag="button" class="btn btn-default">Edit Profile</router-link>
+                        <button class="btn btn-default" @click="() => { $cookies.remove('token'); loggedIn = false }">Logout</button>
+                    </div>
+
+                    <div v-else>
+                        <router-link to="/login" exact-active-class="active" tag="button" class="btn btn-outline-primary">
+                            Login
+                        </router-link>
+                        <router-link class="btn btn-outline-success mx-2" exact-active-class="active" to="/register" tag="button">
+                            Register
+                        </router-link>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -32,7 +42,14 @@
 </template>
 
 <script>
-
+export default {
+    data: () => ({
+        loggedIn: false
+    }),
+    mounted() {
+        this.loggedIn = !!this.$cookies.get("token")
+    }
+}
 </script>
 
 

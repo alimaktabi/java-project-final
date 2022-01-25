@@ -58,9 +58,9 @@ export default {
 
             this.$http.post("/login", formData).then(
                 (res) => {
-                    console.log(res)
                     this.$router.push("/dashboard")
-                    this.loading = true
+                    this.$parent.$data.loggedIn = true
+                    this.$cookies.set("token", res.data.token)
                 }
             ).catch(
                 (err) => {

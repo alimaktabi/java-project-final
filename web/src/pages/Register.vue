@@ -4,7 +4,11 @@
             <div class="col-lg-6 mx-auto p-3 rounded-3 bg-opacity-75 card shadow">
                 <h4 class="text-center">Instagram | Register</h4>
 
-                <form class="mt-4 row">
+                <div class="alert alert-danger my-3" v-if="error">
+                    Username already taken
+                </div>
+
+                <form @submit.prevent="submit" class="mt-4 row">
                     <label class="form-group col-6 mt-4">
                         First Name
                         <input type="text" class="form-control">
@@ -44,13 +48,44 @@
 </template>
 
 <script>
+
 export default {
     name: "Register",
     data: () => ({
         loading: false,
         username: "",
-        password: ""
-    })
+        password: "",
+        firstName: "",
+        lastName: "",
+        error: false,
+    }),
+    methods: {
+        submit() {
+            this.loading = true
+            this.error = false
+
+            const formData = new FormData()
+
+            formData.append("username", this.username)
+            formData.append("fullName", this.firstName + this.lastName)
+            formData.append("password", this.password)
+
+            this.$http.post("/register", formData).then(
+                (res) => {
+                    this.$router.push("/dashboard")
+                    this.$parent.$data.loggedIn = true
+                    this.$cookies.set("token", res.data.token)
+                }
+            ).catch(
+                (err) => {
+                    this.error = true
+                    this.loading = false
+                }
+            )
+
+
+        }
+    }
 }
 </script>
 

@@ -1,3 +1,4 @@
+import Api.Account;
 import Api.Auth;
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
@@ -31,7 +32,12 @@ public class App {
 
 
         app.get("/", App.index);
+
         app.post("/login", Auth.Login);
+
+        app.post("/register", Auth.Register);
+
+        app.get("/search", (Handler) Account.SearchUsers);
 
 
         app.config.addStaticFiles(publicPath, Location.EXTERNAL);
