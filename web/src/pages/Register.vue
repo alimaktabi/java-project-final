@@ -11,19 +11,19 @@
                 <form @submit.prevent="submit" class="mt-4 row">
                     <label class="form-group col-6 mt-4">
                         First Name
-                        <input type="text" class="form-control">
+                        <input v-model="firstName" type="text" class="form-control">
                     </label>
                     <label class="form-group col-6 mt-4">
                         Last Name
-                        <input type="text" class="form-control">
+                        <input type="text" v-model="lastName" class="form-control">
                     </label>
                     <label class="form-group col-12">
                         Username
-                        <input type="text" class="form-control">
+                        <input v-model="username" type="text" class="form-control">
                     </label>
                     <label class="form-group col-12 mt-4">
                         Password
-                        <input type="password" class="form-control">
+                        <input v-model="password" type="password" class="form-control">
                     </label>
                     <label class="form-group col-12 mt-4">
                         Password Confirmation
@@ -67,7 +67,7 @@ export default {
             const formData = new FormData()
 
             formData.append("username", this.username)
-            formData.append("fullName", this.firstName + this.lastName)
+            formData.append("full_name", this.firstName + " " + this.lastName)
             formData.append("password", this.password)
 
             this.$http.post("/register", formData).then(

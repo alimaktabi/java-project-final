@@ -49,7 +49,7 @@ public class Auth {
 
         String username = ctx.formParam("username");
         String password = ctx.formParam("password");
-        String fullName = ctx.formParam("fullName");
+        String fullName = ctx.formParam("full_name");
 
         for (User user: User.users)
         {
@@ -62,6 +62,7 @@ public class Auth {
         }
 
         User user = new User(fullName, username, password);
+
 
         user.login();
 

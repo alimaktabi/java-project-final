@@ -17,6 +17,7 @@
                             <router-link class="nav-link" exact-active-class="active" to="/search">search</router-link>
                         </li>
                     </ul>
+
                     <div v-if="loggedIn">
                         <router-link to="/dashboard" exact-active-class="active" tag="button" class="btn btn-default">Dashboard</router-link>
                         <router-link to="/edit-profile" exact-active-class="active" tag="button" class="btn btn-default">Edit Profile</router-link>
