@@ -12,6 +12,7 @@ import Register from "./pages/Register"
 import EditProfile from "./pages/edit-profile"
 import VueCookie from "vue-cookies"
 import Search from "./pages/Search"
+import Index from "./pages/index"
 import Dashboard from "./pages/Dashboard";
 import Page from "./pages/Page";
 import Post from "./pages/Post";
@@ -37,6 +38,7 @@ const router = new VueRouter({
 
 
 const routes = [
+    { component: Index, path: "/" },
     { component: Login, path: "/login" },
     { component: Register, path: "/register" },
     { component: Search, path: "/search" },

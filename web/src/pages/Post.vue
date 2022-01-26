@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div>
-                    <img :src="userData.image" :alt="userData.title">
+                    <img :src="userData.image" height="400" :alt="userData.title">
                 </div>
             </div>
         </div>

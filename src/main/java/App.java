@@ -45,6 +45,10 @@ public class App {
 
         app.post("/create-post", (Handler) PostApi.createPost);
 
+        app.get("/like-post", PostApi.likePost);
+
+        app.get("/unlike-post", PostApi.unlikePost);
+
         app.post("/dashboard", (Handler) Account.Dashboard);
 
         app.get("/get-page", (Handler) Account.getPage);
@@ -54,6 +58,8 @@ public class App {
         app.post("/unfollow", (Handler) Account.unfollow);
 
         app.get("/get-post", (Handler) Account.getPost);
+
+        app.get("/new-posts", PostApi.Dashboard);
 
         app.config.addStaticFiles(PostApi.publicPath, Location.EXTERNAL);
     }
