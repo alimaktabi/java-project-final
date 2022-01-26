@@ -17,6 +17,7 @@ public class User {
     public static ArrayList<User> users = new ArrayList<User>() {
         {
             add(new User("Sina amini", "09331600113", "123456"));
+            add(new User("Test test", "09331620113", "123456"));
         }
     };
 

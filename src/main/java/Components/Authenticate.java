@@ -10,4 +10,12 @@ public class Authenticate {
         }
         throw new Exception("Authentication required");
     }
+
+    public static User findUserByUsername(String username) throws Exception {
+        for (User user: User.users)
+            if (user.username.equals(username))
+                return user;
+
+        throw new Exception("User not found");
+    }
 }

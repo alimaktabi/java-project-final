@@ -1,5 +1,6 @@
 import Api.Account;
 import Api.Auth;
+import Api.PostApi;
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
 import io.javalin.http.staticfiles.Location;
@@ -9,7 +10,6 @@ import java.util.Scanner;
 
 
 public class App {
-    private static String publicPath = "D:\\Program\\instagram-\\dist";
     private static String htmlFilePath = "D:\\Program\\instagram-\\index.html";
 
     public static Handler index = (ctx) -> {
@@ -43,8 +43,17 @@ public class App {
 
         app.post("/update-profile", (Handler) Account.updateProfile);
 
+        app.post("/create-post", (Handler) PostApi.createPost);
 
-        app.config.addStaticFiles(publicPath, Location.EXTERNAL);
+        app.post("/dashboard", (Handler) Account.Dashboard);
+
+        app.get("/get-page", (Handler) Account.getPage);
+
+        app.post("/follow", (Handler) Account.follow);
+
+        app.post("/unfollow", (Handler) Account.unfollow);
+
+        app.config.addStaticFiles(PostApi.publicPath, Location.EXTERNAL);
 
     }
 }

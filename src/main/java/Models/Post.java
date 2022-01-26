@@ -6,6 +6,7 @@ public class Post {
     public String title;
 
     public String description;
+    public String image;
 
     public ArrayList<User> likes = new ArrayList<>();
 
@@ -14,6 +15,12 @@ public class Post {
     public Post(String title, String description) {
         this.title = title;
         this.description = description;
+    }
+
+    public Post(String title, String description, String image) {
+        this.title = title;
+        this.description = description;
+        this.image = image;
     }
 
     public void like(User user) {

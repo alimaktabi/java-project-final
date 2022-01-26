@@ -5,12 +5,15 @@ import VueRouter from 'vue-router'
 import Toasted from 'vue-toasted'
 import Vue from "vue"
 
+import CreatePost from "./pages/create-post"
 import Axios from "axios"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
 import EditProfile from "./pages/edit-profile"
 import VueCookie from "vue-cookies"
 import Search from "./pages/Search"
+import Dashboard from "./pages/Dashboard";
+import Page from "./pages/Page";
 
 
 Vue.use(window.VueRouter = VueRouter)
@@ -36,7 +39,10 @@ const routes = [
     { component: Login, path: "/login" },
     { component: Register, path: "/register" },
     { component: Search, path: "/search" },
-    { component: EditProfile, path: "/edit-profile" }
+    { component: EditProfile, path: "/edit-profile" },
+    { component: Dashboard, path: "/dashboard" },
+    { component: CreatePost, path: "/create-post" },
+    { component: Page, path: "/pages/page/:username" }
 ]
 
 router.addRoutes(routes)
