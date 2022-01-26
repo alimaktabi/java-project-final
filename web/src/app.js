@@ -14,6 +14,7 @@ import VueCookie from "vue-cookies"
 import Search from "./pages/Search"
 import Dashboard from "./pages/Dashboard";
 import Page from "./pages/Page";
+import Post from "./pages/Post";
 
 
 Vue.use(window.VueRouter = VueRouter)
@@ -42,7 +43,8 @@ const routes = [
     { component: EditProfile, path: "/edit-profile" },
     { component: Dashboard, path: "/dashboard" },
     { component: CreatePost, path: "/create-post" },
-    { component: Page, path: "/pages/page/:username" }
+    { component: Page, path: "/pages/page/:username" },
+    { component: Post, path: "/pages/page/:username/posts/:id"}
 ]
 
 router.addRoutes(routes)

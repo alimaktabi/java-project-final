@@ -19,7 +19,7 @@
                     </label>
                     <label class="form-group col-12 mt-4">
                         Image
-                        <input type="file" accept="image/*" @change="changeFile">
+                        <input type="file" class="form-control" accept="image/*" @change="changeFile">
                     </label>
                     <div class="d-flex justify-content-end align-items-end">
                         <button v-if="!loading" type="submit" class="mt-4 btn btn-success">
@@ -57,7 +57,6 @@ export default {
 
             this.$http.post("/create-post", formData).then(
                 (res) => {
-                    console.log(res)
                     this.$router.push("/dashboard")
                 }
             ).catch(

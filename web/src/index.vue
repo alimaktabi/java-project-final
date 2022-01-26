@@ -18,6 +18,7 @@
                         </li>
                     </ul>
                     <div v-if="loggedIn">
+                        <router-link to="/dashboard" exact-active-class="active" tag="button" class="btn btn-default">Dashboard</router-link>
                         <router-link to="/edit-profile" exact-active-class="active" tag="button" class="btn btn-default">Edit Profile</router-link>
                         <button class="btn btn-default" @click="() => { $cookies.remove('token'); loggedIn = false; $router.push('/login') }">Logout</button>
                     </div>

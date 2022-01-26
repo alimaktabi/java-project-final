@@ -146,4 +146,14 @@ public class Account {
 
         ctx.json(new UserPageResponse(user));
     };
+
+    public static Handler getPost = ctx -> {
+        User user = Authenticate.findUser(ctx.cookie("token"));
+
+        User user1 = Authenticate.findUserByUsername(ctx.queryParam("username"));
+
+        Post post = user1.page.posts.get(Integer.parseInt(Objects.requireNonNull(ctx.queryParam("id"))));
+
+        ctx.json(post);
+    };
 }

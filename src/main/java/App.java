@@ -53,7 +53,8 @@ public class App {
 
         app.post("/unfollow", (Handler) Account.unfollow);
 
-        app.config.addStaticFiles(PostApi.publicPath, Location.EXTERNAL);
+        app.get("/get-post", (Handler) Account.getPost);
 
+        app.config.addStaticFiles(PostApi.publicPath, Location.EXTERNAL);
     }
 }
